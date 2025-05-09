@@ -1,144 +1,130 @@
-Task Tracker API
+# Task Tracker API - Project Documentation
 
-This is a Task Tracker API built with Node.js, Express, and MongoDB. It provides a simple way to create, read, update, and delete (CRUD) tasks. This project is part of my portfolio to showcase my backend development skills.
+Welcome to the **Task Tracker API**! This project is a comprehensive backend API built using **Node.js**, **Express**, and **MongoDB**. It allows users to create, read, update, and delete (CRUD) tasks, making it ideal for tracking tasks in various projects. This API is part of my portfolio to showcase my backend development skills.
 
-Features
+## Features
 
-Create new tasks
+* Create new tasks
+* Get a list of all tasks
+* Retrieve a single task by ID
+* Update an existing task
+* Delete a task
+* MongoDB integration for data persistence
+* RESTful API design
 
-Get a list of all tasks
+## Technologies Used
 
-Update an existing task
+* Node.js
+* Express.js
+* MongoDB (with Mongoose)
+* Postman (for testing)
+* Git and GitHub (for version control)
 
-Delete a task
+## Prerequisites
 
-Technologies Used
+Make sure you have the following installed:
 
-Node.js
+* Node.js (v18 or later)
+* MongoDB Atlas account or local MongoDB server
 
-Express.js
+## Installation
 
-MongoDB
+1. Clone this repository:
 
-Mongoose
+   ```bash
+   git clone https://github.com/Sarbjit513/task-tracker-api.git
+   cd task-tracker-api
+   ```
 
-Postman (for testing)
+2. Install the required dependencies:
 
-Getting Started
+   ```bash
+   npm install
+   ```
 
-Prerequisites
+3. Set up your MongoDB connection:
 
-Node.js installed
+   * Create a `.env` file in the root directory
+   * Add the following line (replace `<your_connection_string>` with your MongoDB connection string):
 
-MongoDB Atlas account or local MongoDB server
+   ```
+   MONGO_URI=<your_connection_string>
+   ```
 
-Installation
+4. Run the server:
 
-Clone this repository:
+   ```bash
+   node app.js
+   ```
 
-git clone https://github.com/Sarbjit513/task-tracker-api.git
-cd task-tracker-api
-npm install
+   The server should now be running at `http://localhost:5000`
 
-Create a .env file in the root directory and add your MongoDB connection string:
+## API Endpoints
 
-MONGODB_URI=your-mongodb-connection-string
-PORT=5000
+### Create a Task
 
-Start the server:
+**Endpoint:** `POST /tasks`
 
-node app.js
+* Creates a new task.
+* **Request Body:**
 
-API Endpoints
-
-Create a Task
-
-Endpoint: POST /tasks
-
-Body:
-
+```json
 {
-    "title": "New Task",
-    "description": "Task description",
-    "completed": false
+  "title": "Task title",
+  "description": "Task description",
+  "completed": false
 }
+```
 
-Response:
+### Get All Tasks
 
+**Endpoint:** `GET /tasks`
+
+* Retrieves a list of all tasks.
+
+### Get a Single Task
+
+**Endpoint:** `GET /tasks/:id`
+
+* Retrieves a task by its ID.
+
+### Update a Task
+
+**Endpoint:** `PUT /tasks/:id`
+
+* Updates a task by its ID.
+* **Request Body:**
+
+```json
 {
-    "_id": "<task-id>",
-    "title": "New Task",
-    "description": "Task description",
-    "completed": false,
-    "createdAt": "<timestamp>",
-    "__v": 0
+  "title": "Updated task title",
+  "description": "Updated task description",
+  "completed": true
 }
+```
 
-Get All Tasks
+### Delete a Task
 
-Endpoint: GET /tasks
+**Endpoint:** `DELETE /tasks/:id`
 
-Response:
+* Deletes a task by its ID.
 
-[
-    {
-        "_id": "<task-id>",
-        "title": "Sample Task",
-        "description": "Sample description",
-        "completed": false,
-        "createdAt": "<timestamp>",
-        "__v": 0
-    }
-]
+## Testing the API
 
-Update a Task
+Use **Postman** or **cURL** to test the API endpoints. Make sure your server is running before testing.
 
-Endpoint: PUT /tasks/<task-id>
+## License
 
-Body:
+This project is licensed under the MIT License. Feel free to use, modify, and distribute it as you like.
 
-{
-    "title": "Updated Task",
-    "description": "Updated description",
-    "completed": true
-}
+## Contributing
 
-Response:
+Contributions are welcome! Please open an issue or submit a pull request if you have any improvements or bug fixes.
 
-{
-    "_id": "<task-id>",
-    "title": "Updated Task",
-    "description": "Updated description",
-    "completed": true,
-    "createdAt": "<timestamp>",
-    "__v": 0
-}
+## Contact
 
-Delete a Task
+For questions or collaboration, reach out via GitHub: [Sarbjit513](https://github.com/Sarbjit513)
 
-Endpoint: DELETE /tasks/<task-id>
 
-Response:
 
-{
-    "message": "Task deleted successfully"
-}
-
-Future Improvements
-
-Add user authentication (JWT)
-
-Task filtering and search
-
-Detailed error handling
-
-Unit tests and integration tests
-
-Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-License
-
-This project is licensed under the MIT License.
 
